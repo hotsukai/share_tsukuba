@@ -12,3 +12,14 @@
  *
  */
 @import "bootstrap";
+$baseCollor: #b2d9bb;
+$accentCollor: #b2cbd9;
+$backGroundcolor: #d9d6d2;
+header {
+  background-color: $baseCollor;
+  color: black;
+}
+.footer {
+  background-color: $backGroundcolor;
+  color: black;
+}

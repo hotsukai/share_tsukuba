@@ -11,13 +11,13 @@
 </head>
 
 <body>
-    <header class="navbar navbar-fixed-top navbar-inverse">
+    <header>
         <div class="container">
             <nav>
-                <ul class="nav navbar-nav navbar-right">
-                    <li> <%= link_to "店舗一覧へ",restaurants_path%></li>
-                    <li> <%= link_to "おすすめしてもらう",lunch_go_path%></li>
-                    <li> <%= link_to "店舗登録",new_restaurant_path%></li>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item"> <%= link_to "店舗一覧へ",restaurants_path, class:"nav-link"%></li>
+                    <li class="nav-item"> <%= link_to "おすすめしてもらう",lunch_go_path,class:"nav-link"%></li>
+                    <li class="nav-item"> <%= link_to "店舗登録",new_restaurant_path,class:"nav-link"%></li>
                 </ul>
             </nav>
         </div>
