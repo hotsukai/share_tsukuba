@@ -6,5 +6,4 @@ class LunchController < ApplicationController
     @recommend = restaurant.sample
   end
 
-  def new; end
 end
