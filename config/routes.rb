@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get 'restaurants/new'
   # For details on the DSL available within this file, sgetee https://guides.rubyonrails.org/routing.html
   get 'lunch/go'
-  get 'restaurats/'
+  get 'restaurants/index'
   post 'restaurants/create'
 end
