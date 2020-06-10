@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>MyPracticeApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+</head>
 
-  <body>
+<body>
     <%= yield %>
-  </body>
+    <%= link_to "店舗一覧へ",restaurants_path%>
+    <%= link_to "おすすめしてもらう",lunch_go_path%>
+    <%= link_to "店舗登録",restaurants_new_path%>
+</body>
+
 </html>
