@@ -11,10 +11,24 @@
 </head>
 
 <body>
-    <%= yield %>
-    <%= link_to "店舗一覧へ",restaurants_path%>
-    <%= link_to "おすすめしてもらう",lunch_go_path%>
-    <%= link_to "店舗登録",new_restaurant_path%>
+    <header class="navbar navbar-fixed-top navbar-inverse">
+        <div class="container">
+            <nav>
+                <ul class="nav navbar-nav navbar-right">
+                    <li> <%= link_to "店舗一覧へ",restaurants_path%></li>
+                    <li> <%= link_to "おすすめしてもらう",lunch_go_path%></li>
+                    <li> <%= link_to "店舗登録",new_restaurant_path%></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="main">
+        <div class="container">
+            <%= yield %>
+        </div>
+    </div>
+    <footer class="footer">
+    </footer>
 </body>
 
 </html>
