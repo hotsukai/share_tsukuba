@@ -1,5 +1,7 @@
-    <h1>店舗一覧</h1>
-    <ul>
-        <%@restaurants.each do |restaurant| %>
-        <li><%=link_to restaurant.name ,restaurant_path(restaurant.id)%></li>
-        <%end%>
+<%provide(:title,"店舗一覧")%>
+
+<h1>店舗一覧</h1>
+<ul>
+    <%@restaurants.each do |restaurant| %>
+    <li><%=link_to restaurant.name ,restaurant_path(restaurant.id)%></li>
+    <%end%>
