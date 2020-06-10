@@ -1,7 +1,5 @@
-<div>
     <h1>店舗一覧</h1>
     <ul>
         <%@restaurants.each do |restaurant| %>
-        <li><%= restaurant.name%></li>
+        <li><%=link_to restaurant.name ,restaurant_path(restaurant.id)%></li>
         <%end%>
-</div>
