@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   # post 'restaurants/create'
 
   resources :restaurants, only: %i[index show create new]
-  get 'sign_up', to: 'users#new'
+  get 'signup' => 'users#new'
 end
