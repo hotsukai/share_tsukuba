@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+      =yield(:title)
+      |  | My Sample App
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      .container
+        nav
+          ul.nav.justify-content-end
+            li.nav-item
+              = link_to "店舗一覧へ",restaurants_path, class:"nav-link"
+            li.nav-item
+              = link_to "おすすめしてもらう",lunch_go_path,class:"nav-link"
+            li.nav-item
+              = link_to "店舗登録",new_restaurant_path,class:"nav-link"
+    .main
+      .container
+        = yield
+    footer.footer
