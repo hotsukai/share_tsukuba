@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'users/new'
   root 'lunch#go'
   get 'lunch/go'
   # get 'restaurants/index'
@@ -12,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: %i[index show create new]
   get 'signup' => 'users#new'
+  resources :users
 end

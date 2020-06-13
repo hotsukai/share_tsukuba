@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
+  include RestaurantsHelper
   def index
     @restaurants = Restaurant.all
   end
@@ -13,9 +14,5 @@ class RestaurantsController < ApplicationController
     restaurant = Restaurant.new(restaurant_params)
     restaurant.save
     redirect_to root_path
-  end
-
-  def restaurant_params
-    params.require(:restaurant).permit(:name)
   end
 end

@@ -23,5 +23,9 @@ html
               = link_to  "サインアップ", signup_path,class:"nav-link" 
     .main
       .container
+        - flash.each do |message_type,message|
+          div class="alert alert-#{message_type}"
+            = message
         = yield
     footer.footer
+    = debug(params) if Rails.env.development?

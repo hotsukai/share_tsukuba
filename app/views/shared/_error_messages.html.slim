@@ -1,0 +1,12 @@
+- if @user.errors.any?
+  div#error_explanation
+    div.alert.alert-danger
+      The form contains 
+      = pluralize(@user.errors.count, "error") 
+      / pluralizeは単語を複数形にする
+      .
+    ul
+      - @user.errors.full_messages.each do |msg| 
+        li 
+          = msg 
+   
