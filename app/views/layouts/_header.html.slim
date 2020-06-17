@@ -10,8 +10,6 @@ nav.navbar.navbar-expand-lg
         li.nav-item
           = link_to "店舗登録",new_restaurant_path,class:"nav-link"
         li.nav-item
-          = link_to  "サインアップ", signup_path,class:"nav-link" 
-        li.nav-item
           = link_to  "ユーザー一覧", "#",class:"nav-link" 
         li.dropdown.nav-item
           a href='#' class="dropdown-toggle nav-link" data-toggle="dropdown"
@@ -22,11 +20,11 @@ nav.navbar.navbar-expand-lg
               =link_to "プロフィール",current_user,class:"nav-link" 
             li
               =link_to "設定","#",class:"nav-link" 
-            li.divider
+            hr
             li
-              = link_to  "ログアウト", logout_path,method: :delete 
+              = link_to  "ログアウト", logout_path,method: :delete ,class:"nav-link" 
       -else
         li  
-          =link_to "ログイン",login_path
+          =link_to "ログイン",login_path,class:"nav-link" 
       
       
