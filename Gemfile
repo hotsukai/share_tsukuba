@@ -5,7 +5,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
 # bootstrap
-gem 'bootstrap-sass', '3.4.1'
+gem 'bootstrap'
+gem 'jquery-rails'
+gem 'uglifier'
 
 gem 'rails-controller-testing'
 

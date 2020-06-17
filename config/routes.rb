@@ -3,13 +3,11 @@
 Rails.application.routes.draw do
   root 'lunch#go'
   get 'lunch/go'
-  # get 'restaurants/index'
-  # get 'restaurants/' => 'restaurants#index'
-  # get 'restaurants/new'
-  # get 'restaurants/:id' => 'restaurants#show'
-  # post 'restaurants/create'
+  get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
 
   resources :restaurants, only: %i[index show create new]
-  get 'signup' => 'users#new'
   resources :users
 end
