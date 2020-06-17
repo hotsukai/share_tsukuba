@@ -26,6 +26,11 @@ nav {
   .nav-link {
     color: white;
   }
+  .dropdown-menu {
+    .nav-link {
+      color: black;
+    }
+  }
 }
 
 // $baseCollor: #b2d9bb;
