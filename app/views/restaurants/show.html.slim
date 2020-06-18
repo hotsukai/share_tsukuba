@@ -1,5 +1,19 @@
 - provide(:title,@restaurant.name)
-h1
-  =@restaurant.name
-p
-  =@restaurant.tel
+.row
+  div.col-8
+    h1
+      =@restaurant.name
+    p
+      |  郵便番号:
+      =@restaurant.zip
+      br
+      | 住所:
+      =@restaurant.address
+      br
+      |  電話番号:
+      =@restaurant.tel
+  .col-4
+    = link_to  "編集する", edit_restaurant_path,class:"btn btn-primary"
+
+
+
