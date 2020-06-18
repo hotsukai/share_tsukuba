@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :restaurants, only: %i[index show create new]
+  resources :restaurants
+  get 'signup' => 'users#new'
   resources :users
 end
