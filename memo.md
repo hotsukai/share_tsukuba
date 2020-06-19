@@ -79,8 +79,23 @@ Materialize の方が人気で情報が多くて入門向け。なんで公式�
 `app/javascript/packs/application.js`がエントリーポイント。ここで import する。
 view の head で読み込み。ファイル名を第一引数で拡張子なしで書くみたい。  
 →application.css と application.scss みたいに複数あったらどうなる？
+→scss のみ読み込まれた
 
 ```
  = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 ```
+
+# attr_accessor :remember_token とは
+
+動的に型が変わるオブジェクト属性を定義
+
+# update_attribute
+
+update_attribute は update のエイリアスらしい。  
+save を呼び出している。
+
+# is_password がよくわからん
+
+`BCrypt::Password.new(remember_digest).is_password?(remember_token)`  
+どゆこと?????調べても rails tuto ばっか出てくるし実用的じゃないのか？？？
