@@ -55,3 +55,32 @@
 `redirect_to restaurant_path`したときにその時扱ってる restaurant の id で`/restaurants/:id`やってくれる.
 id はなんて変数に入ってるんだ??
 restaurant_path(:id)って書き方もあるっぽい
+
+# JS パッケージ管理 6/19
+
+- npm
+- yarn
+  どっちも同じ package.json が使える。yarn の方が安全で速い
+
+yarn や npm install の時、-g を付けないとローカルインストール。(--save-dev はローカルの強調表現?)
+
+# CSS フレームワークについて
+
+html 側で CDN で読み込んだり、yarn で node モジュールとして読み込んだり gem としてインストールしたりどれをすればいいんだ？？  
+rails6 なら webpack 使うべきらしい。なぜ？
+
+## マテリアルデザインフレームワーク
+
+Google 公式の*Material Components for the Web*か*Materialize*か
+Materialize の方が人気で情報が多くて入門向け。なんで公式より人気なんだ?
+
+# webpack
+
+`app/javascript/packs/application.js`がエントリーポイント。ここで import する。
+view の head で読み込み。ファイル名を第一引数で拡張子なしで書くみたい。  
+→application.css と application.scss みたいに複数あったらどうなる？
+
+```
+ = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+```
