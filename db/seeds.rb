@@ -7,12 +7,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Restaurant.create(name: 'トタンコットン', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
-Restaurant.create(name: 'むじゃき', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
-Restaurant.create(name: 'cafe4', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
-Restaurant.create(name: '芛堂寺', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
-Restaurant.create(name: '異国龍', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
-Restaurant.create(name: 'ガーリーショット', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: 'トタンコットン', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: 'むじゃき', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: 'cafe4', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: '芛堂寺', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: '異国龍', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
+Spot.create(name: 'ガーリーショット', zip: 'hoge', address: 'hogehoge', tel: '000-0000-0000')
 
 99.times do |n|
   name  = Faker::Name.name

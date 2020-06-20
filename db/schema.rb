@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_064546) do
+ActiveRecord::Schema.define(version: 2020_06_20_095038) do
 
   create_table "folders", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_06_20_064546) do
     t.index ["user_id"], name: "index_folders_on_user_id"
   end
 
-  create_table "restaurants", force: :cascade do |t|
+  create_table "spots", force: :cascade do |t|
     t.string "name"
     t.string "zip"
     t.string "address"

@@ -2,9 +2,9 @@
 
 require 'test_helper'
 
-class RestaurantsControllerTest < ActionDispatch::IntegrationTest
+class SpotsControllerTest < ActionDispatch::IntegrationTest
   test '店舗登録ページを見れる' do
-    get new_restaurant_path
+    get new_spot_path
     assert_response :success
   end
 end

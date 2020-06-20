@@ -2,7 +2,7 @@
 
 class StaticPagesController < ApplicationController
   def go
-    restaurant = Restaurant.all
-    @recommend = restaurant.sample
+    spot = Spot.all
+    @recommend = spot.sample
   end
 end

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'
 
-  resources :restaurants
+  resources :spots
   get 'signup' => 'users#new'
   resources :users
   resources :folders
