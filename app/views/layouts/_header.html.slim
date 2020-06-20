@@ -12,8 +12,6 @@ nav
         li
           = link_to "店舗登録",new_restaurant_path,class:"nav-link"
         li
-          = link_to  "ユーザー一覧", "#",class:"nav-link" 
-        li
           a class="dropdown-trigger" href="#!" data-target="dropdown-account"
             | アカウント
             i class="material-icons right" arrow_drop_down
@@ -41,7 +39,7 @@ ul class="sidenav" id="mobile-slide"
     li  
       =link_to "プロフィール",current_user,class:"nav-link" 
     li
-      =link_to "設定","#",class:"nav-link" 
+      =link_to "設定",edit_user_path(current_user),class:"nav-link" 
     li
       div class="divider"
     li
@@ -52,11 +50,12 @@ ul class="sidenav" id="mobile-slide"
 
 /ドロップダウン
 ul id="dropdown-account" class="dropdown-content"
-  li  
-    =link_to "プロフィール",current_user,class:"nav-link" 
-  li
-    =link_to "設定","#",class:"nav-link" 
-  li
-    div class="divider"
-  li
-    = link_to  "ログアウト", logout_path,method: :delete ,class:"nav-link" 
+  - if logged_in?
+    li  
+      =link_to "プロフィール",current_user,class:"nav-link" 
+    li
+      =link_to "設定",edit_user_path(current_user),class:"nav-link" 
+    li
+      div class="divider"
+    li
+      = link_to  "ログアウト", logout_path,method: :delete ,class:"nav-link" 

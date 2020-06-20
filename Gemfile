@@ -9,6 +9,8 @@ gem 'uglifier'
 
 gem 'rails-controller-testing'
 
+gem 'kaminari'
+
 # 無向にするためにバージョンを下げる
 gem 'sprockets', '~> 3.7.2'
 
