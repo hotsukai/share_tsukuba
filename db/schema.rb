@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_20_050134) do
+ActiveRecord::Schema.define(version: 2020_06_20_064546) do
+
+  create_table "folders", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id", "created_at"], name: "index_folders_on_user_id_and_created_at"
+    t.index ["user_id"], name: "index_folders_on_user_id"
+  end
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -32,4 +42,5 @@ ActiveRecord::Schema.define(version: 2020_06_20_050134) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "folders", "users"
 end

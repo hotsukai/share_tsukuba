@@ -73,4 +73,12 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = 'a' * 5
     assert_not @user.valid?
   end
+
+  test 'ユーザーが消えたらフォルダも消える' do
+    @user.save
+    @user.folders.create!(name: 'hoge')
+    assert_difference 'Folder.count', -1 do
+      @user.destroy
+    end
+  end
 end

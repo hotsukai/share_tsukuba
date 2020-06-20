@@ -4,11 +4,7 @@
     | ユーザー一覧(管理者用)
   ul
     - @users.each do |user|
-      .card
-        div.card-content
-          =link_to user.name ,user_path(user.id)
-          - if current_user != user
-            =link_to "削除",user,method: :delete,data:{confirm:"削除しますか？"}
+      =render user
   =paginate @users
 -else
   h1

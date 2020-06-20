@@ -3,7 +3,7 @@
 class RestaurantsController < ApplicationController
   include RestaurantsHelper
   def index
-    @restaurants = Restaurant.page(params[:page]).per(3)
+    @restaurants = Restaurant.page(params[:page]).per(30)
   end
 
   def show

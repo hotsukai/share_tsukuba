@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :restaurants
   get 'signup' => 'users#new'
   resources :users
+  resources :folders
 end

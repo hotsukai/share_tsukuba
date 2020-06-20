@@ -7,10 +7,11 @@ ruby '2.7.1'
 gem 'jquery-rails'
 gem 'uglifier'
 
+gem 'kaminari'
 gem 'rails-controller-testing'
 
-gem 'kaminari'
-
+gem 'faker'
+gem 'rails-i18n'
 # 無向にするためにバージョンを下げる
 gem 'sprockets', '~> 3.7.2'
 

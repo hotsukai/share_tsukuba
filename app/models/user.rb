@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :folders, dependent: :destroy # ユーザーがいなくなるとfoldersもなくなる。
   attr_accessor :remember_token # 変数定義的な感じ?
   before_save { email.downcase! }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
