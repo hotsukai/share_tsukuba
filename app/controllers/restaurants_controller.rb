@@ -3,7 +3,7 @@
 class RestaurantsController < ApplicationController
   include RestaurantsHelper
   def index
-    @restaurants = Restaurant.all
+    @restaurants = Restaurant.page(params[:page]).per(3)
   end
 
   def show
@@ -27,6 +27,6 @@ class RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
     @restaurant.update(restaurant_params)
-    redirect_to restaurant_path
+    redirect_to @restaurant
   end
 end
