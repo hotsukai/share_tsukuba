@@ -57,7 +57,7 @@ class UsersController < ApplicationController
     end
  end
 
-  def logged_in_user
+  def currect_user
     redirect_to root_path unless @user == current_user
   end
 
