@@ -2,7 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :logged_in_user, only: %i[edit update destoroy index]
-  before_action :current_user, only: %i[edit update]
+  before_action :correct_user, only: %i[edit update]
   before_action :admin_user, only: :destroy
 
   def new
@@ -63,8 +63,9 @@ class UsersController < ApplicationController
     end
  end
 
-  def currect_user
-    redirect_to root_path unless @user == current_user
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to root_url unless @user == current_user
   end
 
   def admin_user
