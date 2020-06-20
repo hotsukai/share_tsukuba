@@ -19,7 +19,7 @@ import "materialize-css/dist/js/materialize";
 const images = require.context("../images", true);
 const imagePath = (name) => images(name, true);
 
-$(document).ready(function () {
+$(document).on("turbolinks:load", function () {
   // スライドナビゲーション
 
   $(".sidenav").sidenav();
