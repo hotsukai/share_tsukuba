@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'lunch#go'
-  get 'lunch/go'
+  root 'static_pages#go'
+  get 'static_pages/go'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

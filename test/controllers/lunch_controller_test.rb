@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class LunchControllerTest < ActionDispatch::IntegrationTest
+class static_pagesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
