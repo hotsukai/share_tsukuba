@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  root 'static_pages#go'
+  root 'static_pages#home'
   get 'static_pages/go'
   get 'signup' => 'users#new'
   get 'login' => 'sessions#new'

@@ -1,6 +1,10 @@
 li id="folder-#{folder.id}"
-  span 
-    / = link_to  folder.name, model 
+  h2 
     = folder.name
-  span
-    = folder.description
+  p
+    =folder.user.name
+    p
+    =folder.id
+  p
+    =folder.description
+  

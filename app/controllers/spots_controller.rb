@@ -11,12 +11,19 @@ class SpotsController < ApplicationController
   end
 
   def create
-    spot = Spot.new(spot_params)
-    spot.save
+    @spot = Spot.new(spot_params)
+    @spot.image.attach(params[:spot][:image])
+    if @spot.save
+      flash[:success] = 'スポットが登録されました！'
+    else
+      flash[:error] = 'スポットが登録できませんでした...'
+    end
     redirect_to root_path
   end
 
-  def new; end
+  def new
+  @spot=Spot.new
+  end
 
   def edit
     @spot = Spot.find(params[:id])
@@ -26,7 +33,16 @@ class SpotsController < ApplicationController
 
   def update
     @spot = Spot.find(params[:id])
-    @spot.update(spot_params)
+    @spot.image.attach(params[:spot][:image])
+    if @spot.update(spot_params)
+      flash[:success] = 'スポットを更新しました！'
+    else
+      flash[:error] = 'スポットを更新できませんでした...'
+     end
     redirect_to @spot
   end
+
+  def spot_params
+    params.require(:spot).permit(:id, :name, :zip, :address, :tel, :image)
+ end
 end

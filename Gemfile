@@ -4,8 +4,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'active_storage_validations'
 gem 'jquery-rails'
 gem 'uglifier'
+
+gem 'image_processing'
+gem 'mini_magick'
 
 gem 'kaminari'
 gem 'rails-controller-testing'
