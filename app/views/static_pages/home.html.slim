@@ -1,0 +1,22 @@
+- provide(:title)
+h2 シェアつくば!! とは？
+p
+  | 「シェアつくば!!」はつくばのスポットをフォルダにまとめてシェアできる、webアプリです！！
+
+h4
+  | 人気フォルダ
+
+
+h4
+  | 新着フォルダ
+
+-if logged_in?
+  .row 
+    aside.col.s8 
+      h4
+        | フォルダを作成。
+      =render "shared/folder_form"
+      
+    h4
+      | フォルダタイムライン
+      =render 'shared/feed'
