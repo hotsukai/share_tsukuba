@@ -1,0 +1,11 @@
+- provide(:title,"ユーザー一覧")
+-if current_user.admin? 
+  h1
+    | ユーザー一覧(管理者用)
+  ul
+    - @users.each do |user|
+      =render user
+  =paginate @users
+-else
+  h1
+    |管理者権限が必要です。

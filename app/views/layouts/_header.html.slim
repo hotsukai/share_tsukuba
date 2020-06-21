@@ -5,14 +5,12 @@ nav
       i class="material-icons" menu
     ul.right.hide-on-med-and-down
       li
-        = link_to "店舗一覧へ",restaurants_path, class:"nav-link"
+        = link_to "店舗一覧へ",spots_path, class:"nav-link"
       li
-        = link_to "おすすめしてもらう",lunch_go_path,class:"nav-link"
+        = link_to "おすすめしてもらう",static_pages_go_path,class:"nav-link"
       - if logged_in?
         li
-          = link_to "店舗登録",new_restaurant_path,class:"nav-link"
-        li
-          = link_to  "ユーザー一覧", "#",class:"nav-link" 
+          = link_to "店舗登録",new_spot_path,class:"nav-link"
         li
           a class="dropdown-trigger" href="#!" data-target="dropdown-account"
             | アカウント
@@ -32,16 +30,16 @@ ul class="sidenav" id="mobile-slide"
         = link_to  current_user.name, current_user
 
   li
-    = link_to "店舗一覧へ",restaurants_path, class:"nav-link"
+    = link_to "店舗一覧へ",spots_path, class:"nav-link"
   li
-    = link_to "おすすめしてもらう",lunch_go_path,class:"nav-link"
+    = link_to "おすすめしてもらう",static_pages_go_path,class:"nav-link"
   - if logged_in?
     li
-      = link_to "店舗登録",new_restaurant_path,class:"nav-link"
+      = link_to "店舗登録",new_spot_path,class:"nav-link"
     li  
       =link_to "プロフィール",current_user,class:"nav-link" 
     li
-      =link_to "設定","#",class:"nav-link" 
+      =link_to "設定",edit_user_path(current_user),class:"nav-link" 
     li
       div class="divider"
     li
@@ -52,11 +50,12 @@ ul class="sidenav" id="mobile-slide"
 
 /ドロップダウン
 ul id="dropdown-account" class="dropdown-content"
-  li  
-    =link_to "プロフィール",current_user,class:"nav-link" 
-  li
-    =link_to "設定","#",class:"nav-link" 
-  li
-    div class="divider"
-  li
-    = link_to  "ログアウト", logout_path,method: :delete ,class:"nav-link" 
+  - if logged_in?
+    li  
+      =link_to "プロフィール",current_user,class:"nav-link" 
+    li
+      =link_to "設定",edit_user_path(current_user),class:"nav-link" 
+    li
+      div class="divider"
+    li
+      = link_to  "ログアウト", logout_path,method: :delete ,class:"nav-link" 

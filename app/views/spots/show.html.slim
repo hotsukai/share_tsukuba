@@ -1,0 +1,22 @@
+- provide(:title,@spot.name)
+.row
+  div.col-8
+    h1
+      =@spot.name
+    - if @spot.image.attached?
+      = image_tag @spot.display_image 
+    p
+      |  郵便番号:
+      =@spot.zip
+      br
+      | 住所:
+      =@spot.address
+      br
+      |  電話番号:
+      =@spot.tel
+
+    .col-4
+    = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
+
+
+
