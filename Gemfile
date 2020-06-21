@@ -4,13 +4,18 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.1'
+gem 'active_storage_validations'
 gem 'jquery-rails'
 gem 'uglifier'
 
-gem 'rails-controller-testing'
+gem 'image_processing'
+gem 'mini_magick'
 
 gem 'kaminari'
+gem 'rails-controller-testing'
 
+gem 'faker'
+gem 'rails-i18n'
 # 無向にするためにバージョンを下げる
 gem 'sprockets', '~> 3.7.2'
 

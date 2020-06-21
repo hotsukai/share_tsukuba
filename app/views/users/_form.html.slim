@@ -1,16 +1,15 @@
 = form_with(model: @user,local: true,class:"col s12") do |f|
-  .row
-    = render 'shared/error_messages'
-    = f.label "名前"
-    = f.text_field :name,class: 'validate'
+  = render 'shared/error_messages',object: f.object
+  = f.label "名前"
+  = f.text_field :name,class: 'validate'
+  
+  =f.label "メールアドレス"
+  =f.email_field :email, class: 'validate'
+
+  =f.label "パスワード"
+  =  f.password_field :password, class:'validate'
+
+  =f.label "パスワード(確認)"
+  =f.password_field :password_confirmation, class: 'validate'
     
-    =f.label "メールアドレス"
-    =f.email_field :email, class: 'validate'
-
-    =f.label "パスワード"
-    =  f.password_field :password, class:'validate'
-
-    =f.label "パスワード(確認)"
-    =f.password_field :password_confirmation, class: 'validate'
-      
-    = f.submit yield(:button_text) ,class:"waves-effect waves-light btn"
+  = f.submit yield(:button_text) ,class:"waves-effect waves-light btn"

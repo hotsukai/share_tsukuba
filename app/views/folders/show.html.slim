@@ -1,0 +1,15 @@
+- provide(:title,@folder.name)
+.card
+  h2 
+    = @folder.name
+  p
+    =@folder.user.name
+  p
+    =@folder.description
+  -if current_user==@folder.user
+    .col-4
+      = link_to  "編集する", edit_folder_path,class:"waves-effect waves-light btn"
+      = link_to  "削除する", @folder,method: :delete ,data:{confirm: "フォルダを削除しますか。この操作は元に戻せません"},class:"waves-effect waves-light btn"
+
+
+

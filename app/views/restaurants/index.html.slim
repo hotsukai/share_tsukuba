@@ -1,9 +1,0 @@
-- provide(:title,"店舗一覧")
-h1
-  | 店舗一覧
-ul
-  - @restaurants.each do |restaurant|
-    .card
-      div.card-content
-        =link_to restaurant.name ,restaurant_path(restaurant.id)
-=paginate @restaurants
