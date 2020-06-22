@@ -99,3 +99,7 @@ save を呼び出している。
 
 `BCrypt::Password.new(remember_digest).is_password?(remember_token)`  
 どゆこと?????調べても rails tuto ばっか出てくるし実用的じゃないのか？？？
+
+# Materialize
+
+s はスマホ m はタブレット l は pC

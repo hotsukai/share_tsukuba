@@ -3,11 +3,12 @@ html
   = render  "layouts/head" 
   body
     = render "layouts/header"
-    .main
-      .container
-        - flash.each do |message_type,message|
-          div class="alert alert-#{message_type}"
-            = message
+    .container
+      - flash.each do |message_type,message|
+        - color = 'light-blue lighten-3' if message_type == 'notice'
+        - color = 'red lighten-1' if message_type == 'alert'
+        =javascript_tag  "M.toast({html: '#{message}'})"
+      .row
         = yield
     footer.footer
       = debug(params) if Rails.env.development?

@@ -1,22 +1,31 @@
 - provide(:title)
-h2 つくスポ!! とは？
-p
-  | 「つくスポ!!」はつくばのスポットをフォルダにまとめてシェアできる、webアプリです！！
+.col.s12.m8
+  h4 シェアつくば!! とは？
+  p
+    | 「シェアつくば!!」はつくばのスポットをフォルダにまとめてシェアできる、webアプリです！！
+  .divider
 
-h4
-  | 人気フォルダ
+.col.s12.m8
+  h4
+    | 人気フォルダ
+  p 
+    |未実装
+  .divider
 
-
-h4
-  | 新着フォルダ
+.col.s12.m8
+  h4
+    | 新着フォルダ
+  p 
+    |未実装
+  .divider
 
 -if logged_in?
-  .row 
-    aside.col.s8 
-      h4
-        | フォルダを作成。
-      =render "shared/folder_form"
-      
+  .col.s12.m8
+    h4
+      | フォルダを作成。
+    =render "shared/folder_form"
+    .divider
+  .col.s12.m8
     h4
       | フォルダタイムライン
-      =render 'shared/feed'
+    =render 'shared/feed'

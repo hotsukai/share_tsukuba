@@ -1,18 +1,14 @@
 - provide(:title,@user.name)
-div.row
-  aside.col.s4
-    section.user-info
-      h1
-        = gravatar_for @user
-        = @user.name
-      p 
-        | email:
-        = @user.email
+.col.s12.m8
+  h4
+    = gravatar_for @user
+    = @user.name
+  p 
+    | email:
+    = @user.email
 
   .col.s8
-    -if @user.folders.any?
+    -if @feed_items.any?
       h3 このユーザーが作成したフォルダ
-      ol.folders
-        =render @folders
-      =paginate @folders
+      =render "shared/feed"
   

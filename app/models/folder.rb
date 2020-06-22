@@ -6,4 +6,5 @@ class Folder < ApplicationRecord
   validates :user_id, presence: true
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, length: { maximum: 255 }
+  has_one_attached :image
 end

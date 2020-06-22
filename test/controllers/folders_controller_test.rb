@@ -31,11 +31,11 @@ class FoldersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test '異なるユーザーのフォルダを編集しようとするとリダイレクトする。' do
-    log_in_as(users(:michael))
+    log_in_as(users(:archer))
     get root_path
     original_name = @folder.name
     patch folder_path(@folder), params: { folder: { name: 'hoge', description: 'fugaguga' } }
     assert_redirected_to root_url
-    assert original_name == @folder
+    assert original_name == @folder.name
   end
 end
