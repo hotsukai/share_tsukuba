@@ -7,14 +7,23 @@
   =f.text_field :zip, class:'validate'
 
   =f.label "住所"
-  = f.text_area :address,class: 'validate'
+  = f.text_area :address,class: 'materialize-textarea'
 
   =f.label "電話番号"
   =f.telephone_field :tel,class: 'validate'
-  = f.submit yield(:button_text) ,class:"waves-effect waves-light btn"
 
-  span.image 
-    =f.file_field :image , accept: "image/jpeg,image/gif,image/png" 
+  div.file-field.input-field
+    div.btn
+      span  
+        |画像
+      =f.file_field :image , accept: "image/jpeg,image/gif,image/png" 
+    div.file-path-wrapper
+      input class="file-path validate" type="text" placeholder="画像を追加できます"
+
+  div.btn.waves-effect.waves-light 
+    = f.submit yield(:button_text),style:"color:white;"
+    i class="material-icons right"send
+
 
 javascript: 
   $("#spot_image").bind("change", function() {
