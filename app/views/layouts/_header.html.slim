@@ -1,23 +1,27 @@
-nav
-  .nav-wrapper
-    = link_to "シェアつくば!!", root_path, id: "logo" ,class:"brand-logo"
-    a href="#" data-target="mobile-slide" class="sidenav-trigger"
-      i class="material-icons" menu
-    ul.right.hide-on-med-and-down
-      li
-        = link_to "店舗一覧へ",spots_path, class:"nav-link"
-      li
-        = link_to "おすすめしてもらう",static_pages_go_path,class:"nav-link"
-      - if logged_in?
-        li
-          = link_to "店舗登録",new_spot_path,class:"nav-link"
-        li
-          a class="dropdown-trigger" href="#!" data-target="dropdown-account"
-            | アカウント
-            i class="material-icons right" arrow_drop_down
-      -else
-        li  
-          =link_to "ログイン",login_path,class:"nav-link" 
+.navbar-fixed
+  nav
+    .container
+      .row
+        .nav-wrapper
+          span
+            = link_to "シェアつくば!!", root_path, id: "logo" ,class:"brand-logo"
+          a href="#" data-target="mobile-slide" class="sidenav-trigger"
+            i class="material-icons" menu
+          ul.right.hide-on-med-and-down
+            li
+              = link_to "店舗一覧へ",spots_path, class:"nav-link"
+            li
+              = link_to "おすすめしてもらう",static_pages_go_path,class:"nav-link"
+            - if logged_in?
+              li
+                = link_to "店舗登録",new_spot_path,class:"nav-link"
+              li
+                a class="dropdown-trigger" href="#!" data-target="dropdown-account"
+                  | アカウント
+                  i class="material-icons right" arrow_drop_down
+            -else
+              li  
+                =link_to "ログイン",login_path,class:"nav-link" 
 
 / モバイルのナビゲーション
 ul class="sidenav" id="mobile-slide"
