@@ -32,6 +32,8 @@ ul class="sidenav" id="mobile-slide"
           = image_pack_tag 'pizza.jpg'
         = link_to gravatar_for(current_user,size:30), current_user
         = link_to  current_user.name, current_user
+      section.stats
+        = render 'shared/stats'
 
   li
     = link_to "店舗一覧へ",spots_path, class:"nav-link"

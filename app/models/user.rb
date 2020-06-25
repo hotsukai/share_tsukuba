@@ -2,6 +2,11 @@
 
 class User < ApplicationRecord
   has_many :folders, dependent: :destroy # ユーザーがいなくなるとfoldersもなくなる。
+  has_many :active_relationships, class_name: 'UserRelationship', foreign_key: 'follower_id', dependent: :destroy
+  has_many :passive_relationships, class_name: 'UserRelationship', foreign_key: 'followed_id', dependent: :destroy
+  has_many :following, through: :active_relationships, source: :followed # followedsのことをfollowingと呼ぶように定義
+  has_many :followers, through: :passive_relationships # followersのときはrailsが自動でpassive_Retatonshipsからfollower_idを探してくれる
+
   attr_accessor :remember_token # 変数定義的な感じ?
   before_save { email.downcase! }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -41,4 +46,17 @@ class User < ApplicationRecord
   def feed
     Folder.where('user_id = ?', id)
   end
+
+  def follow(other_user)
+    following.append(other_user)
+    # following << other_user
+  end
+
+  def unfollow(other_user)
+    active_relationships.find_by(followed_id: other_user.id).destroy
+  end
+
+  def following?(other_user)
+    following.include?(other_user)
+end
 end

@@ -13,8 +13,8 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
     get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
-    assert_select 'h1', text: @user.name
-    assert_select 'h1>img.gravatar'
+    assert_select 'h4', text: @user.name
+    assert_select 'h4>img.gravatar'
     # assert_match @user.folders.count.to_s, response.body
     assert_select 'nav.pagination'
     @user.folders.page(1).each do |folder|

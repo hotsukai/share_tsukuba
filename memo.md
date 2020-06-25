@@ -103,3 +103,9 @@ save を呼び出している。
 # Materialize
 
 s はスマホ m はタブレット l は pC
+
+## rails server とめれなくなったら
+
+`lsof -i :3000`
+からの
+kill

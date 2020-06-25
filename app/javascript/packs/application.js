@@ -20,11 +20,15 @@ const images = require.context("../images", true);
 const imagePath = (name) => images(name, true);
 
 $(document).on("turbolinks:load", function () {
-  // スライドナビゲーション
-
   $(".sidenav").sidenav();
-  //ドロップダウン
   $(".dropdown-trigger").dropdown({
     coverTrigger: false,
   });
+  console.log("読み込み", $.fn.jquery);
+});
+
+$(document).on("turbolinks:before-cache", function () {
+  $(".sidenav").sidenav("destroy");
+  $(".dropdown-trigger").dropdown("destroy");
+  $(".modal").modal("destroy");
 });
