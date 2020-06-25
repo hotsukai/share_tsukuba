@@ -1,0 +1,30 @@
+- provide(:title, @title)
+.row 
+  aside.col.s12.m4
+    section.user_info 
+      =gravatar_for @user 
+      h4
+        =@user.name
+      p
+        =link_to "プロフィールを見る",@user 
+      p
+        b 
+          | 投稿フォルダ数 : 
+          = @user.folders.count
+    section.stat  
+      =render "shared/stats"
+      -if @users.any?
+        .users_name 
+          -@users.each do |user|
+            =link_to @user.name ,user
+
+  .col.s12.m8
+    h5
+      =@title
+    - if @users.any?
+      ul.users.follow 
+        =render @users
+    -else 
+      p このユーザーはまだ誰もフォローしていません
+
+          

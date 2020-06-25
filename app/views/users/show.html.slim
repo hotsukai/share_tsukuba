@@ -6,8 +6,11 @@
   p 
     | email:
     = @user.email
+  section.stats 
+    =render "shared/stats"
 
   .col.s8
+    =render "follow_form" if logged_in?
     -if @feed_items.any?
       h3 このユーザーが作成したフォルダ
       =render "shared/feed"

@@ -40,4 +40,14 @@ end
     assert flash.empty?
     assert_redirected_to root_url
   end
+
+  test 'ログインしていないとき、フォロー一覧を見れない' do
+    get following_user_path(@user)
+    assert_redirected_to login_url
+  end
+
+  test 'ログインしていないとき、フォロワー一覧を見れない' do
+    get followers_user_path(@user)
+    assert_redirected_to login_url
+  end
 end
