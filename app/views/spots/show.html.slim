@@ -14,7 +14,7 @@
     br
     |  電話番号:
     =@spot.tel
-  - if logged_in?
+  - if current_user.admin?
     = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
     button data-target="modal1" class="btn btn-primary modal-trigger" 
       | フォルダに追加する
