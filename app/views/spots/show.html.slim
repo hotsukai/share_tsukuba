@@ -29,15 +29,10 @@
 #modal1.modal 
   - if current_user.folders.count !=0
     -current_user.folders.each do |folder|
-      =form_with(model: FolderSpotRelationship, remote: true) do |f|
-        p 
-          =folder.name
-        =hidden_field_tag :folder_id,folder.id
-        =hidden_field_tag :spot_id,@spot.id
-        = f.submit "追加する" ,class:"btn"
+      p 
+        =folder.name
+      =render "shared/add", folder:folder
   - else
     p
       | まだフォルダがありません。
     = link_to  "フォルダを作成する", root_path,class:"btn btn-primary "
-
- 
