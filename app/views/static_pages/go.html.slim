@@ -1,4 +1,6 @@
 - provide(:title,"今回のおすすめ")
-h1
+h5
   = @recommend.name
+p
   | はどうですか
+= link_to  "詳しく見る", @recommend,class:"btn btn-primary"

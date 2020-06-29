@@ -1,0 +1,13 @@
+- if folder.spots.include?(@spot)
+  =form_with(model:FolderSpotRelationship.find_by(spot_id: @spot.id,folder_id:folder.id),html:{method: :delete} ,remote: true) do |f|
+    =hidden_field_tag :folder_id,folder.id
+    =hidden_field_tag :spot_id,@spot.id
+    = f.submit "フォルダから削除" ,class:"btn"
+- else
+  =form_with(model: FolderSpotRelationship, remote: true) do |f|
+    .field 
+      =hidden_field_tag :folder_id,folder.id
+      =hidden_field_tag :spot_id,@spot.id
+      =f.label "コメント"
+      =f.text_area :comment,class: 'materialize-textarea'
+    = f.submit "追加する" ,class:"btn"

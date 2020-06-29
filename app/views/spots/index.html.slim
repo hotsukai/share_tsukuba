@@ -1,9 +1,10 @@
 - provide(:title,"店舗一覧")
-h1
+h5
   | 店舗一覧
 ul
   - @spots.each do |spot|
-    .card
-      div.card-content
-        =link_to spot.name ,spot_path(spot.id)
+    .col.s6.m4
+      .card
+        div.card-content
+          =link_to spot.name ,spot_path(spot.id)
 =paginate @spots

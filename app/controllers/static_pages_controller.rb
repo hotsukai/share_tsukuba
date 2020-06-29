@@ -3,8 +3,8 @@
 class StaticPagesController < ApplicationController
   def home
     if logged_in?
-    @folder = current_user.folders.build if logged_in?
-    @feed_items = current_user.feed.page(params[:page])
+      @folder = current_user.folders.build if logged_in?
+      @feed_items = current_user.feed.page(params[:page])
     end
   end
 
@@ -12,4 +12,6 @@ class StaticPagesController < ApplicationController
     spot = Spot.all
     @recommend = spot.sample
   end
+
+  def start; end
 end

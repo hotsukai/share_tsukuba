@@ -1,17 +1,19 @@
-.col.s6.m6
+.col.s12.m6
   .card id="folder-#{folder.id}" class=""
-    span.card-title
-        = folder.name
+    =link_to "#{folder.name}",folder,class:"card-title"
     .card-content
       p.mini.right-align
         | Creater : 
         =folder.user.name
-      p.mini.right-align
-        | ID : 
-        =folder.id
-      p
-        =folder.description
-    -if current_user==folder.user
+        br
+          | ID : 
+          =folder.id
+      - if comment.present?
+        p 
+          |コメント : 
+          br
+          =comment
+    -if current_user==folder.user && not_editable.nil?
       .card-action
         = link_to  "編集する", edit_folder_path(folder.id),class:"waves-effect waves-light btn"
         = link_to  "削除する", folder,method: :delete ,data:{confirm: "フォルダを削除しますか。この操作は元に戻せません"},class:"waves-effect waves-light btn"

@@ -1,7 +1,11 @@
 = form_with(model: @folder,local:true)do |f|
   =render 'shared/error_messages',object: f.object
   .field 
-    = f.text_area :name,class: 'materialize-textarea' ,placeholder: "フォルダの名前は？ 行きたい場所リスト / 映えるフォトスポット / つくばの美味しいラーメン.. など"
+    = f.label "フォルダ名"
+    = f.text_area :name,class: 'materialize-textarea' ,placeholder: "行きたい場所リスト / 映えるフォトスポット / つくばの美味しいラーメン.. など"
+
+    = f.label "説明"
+    = f.text_area :description,class: 'materialize-textarea'
   div.btn.waves-effect.waves-light 
     = f.submit "保存",style:"color:white;"
     i class="material-icons right"send
