@@ -10,6 +10,12 @@ Rails.application.routes.draw do
 
   resources :spots
   get 'signup' => 'users#new'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :folders
+  resources :user_relationships, only: %i[create destroy]
+  resources :folder_spot_relationships, only: %i[create destroy]
 end

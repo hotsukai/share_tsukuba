@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_21_032414) do
+ActiveRecord::Schema.define(version: 2020_06_25_121321) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 2020_06_21_032414) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "folder_spot_relationships", force: :cascade do |t|
+    t.integer "folder_id"
+    t.integer "spot_id"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["folder_id"], name: "index_folder_spot_relationships_on_folder_id"
+    t.index ["spot_id"], name: "index_folder_spot_relationships_on_spot_id"
+  end
+
   create_table "folders", force: :cascade do |t|
     t.string "name"
     t.integer "user_id", null: false
@@ -50,6 +60,16 @@ ActiveRecord::Schema.define(version: 2020_06_21_032414) do
     t.string "tel"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "followed_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["followed_id"], name: "index_user_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_user_relationships_on_follower_id_and_followed_id", unique: true
+    t.index ["follower_id"], name: "index_user_relationships_on_follower_id"
   end
 
   create_table "users", force: :cascade do |t|

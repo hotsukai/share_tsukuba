@@ -1,14 +1,20 @@
 - provide(:title,@user.name)
-.col.s12.m8
+.col.s12.m4
   h4
     = gravatar_for @user
     = @user.name
   p 
     | email:
     = @user.email
+  section.stats 
+    =render "shared/stats"
+  =render "follow_form" if logged_in?
 
-  .col.s8
-    -if @feed_items.any?
-      h3 このユーザーが作成したフォルダ
-      =render "shared/feed"
-  
+
+.col.s12.m8
+  h3 このユーザーが作成したフォルダ
+
+  -if @feed_items.any?
+    =render "shared/feed"
+  -else 
+    p まだフォルダがありません

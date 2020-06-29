@@ -1,6 +1,6 @@
 - provide(:title,@spot.name)
 .row
-  div.col-8
+  .col-8
     h1
       =@spot.name
     - if @spot.image.attached?
@@ -15,8 +15,11 @@
       |  電話番号:
       =@spot.tel
 
-    .col-4
+  .col-4
     = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
-
-
-
+    
+    =form_with(model: FolderSpotRelationship, remote: true) do |f|
+      =hidden_field_tag :folder_id,current_user.folders.first.id 
+      /TODO
+      =hidden_field_tag :spot_id,@spot.id
+      = f.submit "実装中：追加する" ,class:"btn"
