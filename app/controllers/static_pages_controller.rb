@@ -13,5 +13,9 @@ class StaticPagesController < ApplicationController
     @recommend = spot.sample
   end
 
-  def start; end
+  def start
+    if logged_in?
+    redirect_to home_path
+  end
+end
 end
