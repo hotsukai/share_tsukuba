@@ -9,14 +9,18 @@
   h4
     | 人気フォルダ
   p 
-    |未実装
+    i class="material-icons" 
+      | new_releases
+    | 未実装
   .divider
 
 .col.s12.m8
   h4
     | 新着フォルダ
   p 
-    |未実装
+    i class="material-icons" 
+      | new_releases
+    | 未実装
   .divider
 
 -if logged_in?
@@ -26,6 +30,11 @@
     =render "shared/folder_form"
     .divider
   .col.s12.m8
-    h4
+    h4 
       | フォルダタイムライン
-    =render 'shared/feed'
+    p 
+      i class="material-icons" 
+        | new_releases
+      | 未実装
+      
+    .divider
