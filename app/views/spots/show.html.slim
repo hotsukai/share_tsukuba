@@ -14,11 +14,20 @@
       br
       |  電話番号:
       =@spot.tel
-
-    = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
-
-    button data-target="modal1" class="btn btn-primary modal-trigger" 
-        | フォルダに追加する
+    - if logged_in?
+      = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
+      button data-target="modal1" class="btn btn-primary modal-trigger" 
+          | フォルダに追加する
+          #modal1.modal 
+            - if current_user.folders.count !=0
+              -current_user.folders.each do |folder|
+                p 
+                  =folder.name
+                =render "shared/add", folder:folder
+            - else
+              p
+                | まだフォルダがありません。
+              = link_to  "フォルダを作成する", root_path,class:"btn btn-primary "
 
   .col.s12.m8
     h5
@@ -26,13 +35,3 @@
     - @spot.saved_relationships.each do |saved_relationship|
       =render saved_relationship.folder
 
-#modal1.modal 
-  - if current_user.folders.count !=0
-    -current_user.folders.each do |folder|
-      p 
-        =folder.name
-      =render "shared/add", folder:folder
-  - else
-    p
-      | まだフォルダがありません。
-    = link_to  "フォルダを作成する", root_path,class:"btn btn-primary "
