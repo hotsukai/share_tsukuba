@@ -24,7 +24,7 @@ class FoldersController < ApplicationController
   def destroy
     @folder.destroy
     flash[:success] = 'フォルダが削除されました'
-    redirect_to request.referrer || root_url
+    redirect_to root_url
   end
 
   def update
