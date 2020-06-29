@@ -24,6 +24,7 @@ $(document).on("turbolinks:load", function () {
   $(".dropdown-trigger").dropdown({
     coverTrigger: false,
   });
+  $(".modal").modal();
   console.log("読み込み", $.fn.jquery);
 });
 

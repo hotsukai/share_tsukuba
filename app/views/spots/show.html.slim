@@ -16,12 +16,9 @@
       =@spot.tel
 
     = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
-    
-    =form_with(model: FolderSpotRelationship, remote: true) do |f|
-      =hidden_field_tag :folder_id,current_user.folders.first.id 
-      /TODO
-      =hidden_field_tag :spot_id,@spot.id
-      = f.submit "実装中：追加する" ,class:"btn"
+
+    button data-target="modal1" class="btn btn-primary modal-trigger" 
+        | フォルダに追加する
 
   .col.s12.m8
     h5
@@ -29,3 +26,18 @@
     - @spot.saved_relationships.each do |saved_relationship|
       =render saved_relationship.folder
 
+#modal1.modal 
+  - if current_user.folders.count !=0
+    -current_user.folders.each do |folder|
+      =form_with(model: FolderSpotRelationship, remote: true) do |f|
+        p 
+          =folder.name
+        =hidden_field_tag :folder_id,folder.id
+        =hidden_field_tag :spot_id,@spot.id
+        = f.submit "追加する" ,class:"btn"
+  - else
+    p
+      | まだフォルダがありません。
+    = link_to  "フォルダを作成する", root_path,class:"btn btn-primary "
+
+ 
