@@ -41,7 +41,7 @@ class User < ApplicationRecord
 
   def forget
     update_attribute(:remember_digest, nil)
- end
+  end
 
   def feed
     Folder.where('user_id = ?', id)
@@ -58,5 +58,5 @@ class User < ApplicationRecord
 
   def following?(other_user)
     following.include?(other_user)
-end
+  end
 end

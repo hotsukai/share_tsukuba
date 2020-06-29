@@ -18,7 +18,7 @@ class FoldersController < ApplicationController
   end
 
   def edit
-  @folder=Folder.find(params[:id]) 
+    @folder = Folder.find(params[:id])
   end
 
   def destroy

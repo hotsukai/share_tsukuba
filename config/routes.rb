@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :folders
   resources :user_relationships, only: %i[create destroy]
+  resources :folder_spot_relationships, only: %i[create destroy]
 end

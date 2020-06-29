@@ -4,7 +4,7 @@
       .row
         .nav-wrapper
           span
-            = link_to "シェアつくば!!", root_path, id: "logo" ,class:"brand-logo",style:"font-size:2em;"
+            = link_to "シェアつくば!!", root_path, id: "logo" ,class:"brand-logo"
           a href="#" data-target="mobile-slide" class="sidenav-trigger"
             i class="material-icons" menu
           ul.right.hide-on-med-and-down
@@ -31,8 +31,7 @@ ul class="sidenav" id="mobile-slide"
         .background
           = image_pack_tag 'pizza.jpg'
         = link_to gravatar_for(current_user,size:30), current_user
-        = link_to  current_user.name, current_user
-      section.stats
+        = link_to  current_user.name, current_user ,class:"user_name"
         = render 'shared/stats'
 
   li
