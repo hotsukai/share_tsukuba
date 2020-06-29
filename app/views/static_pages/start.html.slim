@@ -1,1 +1,10 @@
 -provide(:title,"トップ")
+
+.col.s12.m8
+  h4 シェアつくば!! とは？
+  p
+    | 「シェアつくば!!」はつくばのスポットをフォルダにまとめてシェアできる、webアプリです！！
+  .divider
+
+  = link_to  "ログインして始める", login_path,class:"btn"
+  = link_to  "ログインせず始める",home_path
