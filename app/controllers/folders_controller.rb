@@ -30,7 +30,7 @@ class FoldersController < ApplicationController
   def update
     @folder.update(folder_params)
     flash[:success] = 'フォルダが更新されました'
-    redirect_to request.referrer || root_url
+    redirect_to @folder || root_url
   end
 
   def show

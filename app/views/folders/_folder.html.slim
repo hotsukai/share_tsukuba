@@ -1,7 +1,6 @@
 .col.s6.m6
   .card id="folder-#{folder.id}" class=""
-    span.card-title
-        = folder.name
+    =link_to "#{folder.name}",folder,class:"card-title"
     .card-content
       p.mini.right-align
         | Creater : 

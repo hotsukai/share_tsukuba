@@ -1,7 +1,7 @@
 - provide(:title,@spot.name)
 .row
-  .col-8
-    h1
+  .col.s12.m4
+    h5
       =@spot.name
     - if @spot.image.attached?
       = image_tag @spot.display_image 
@@ -15,7 +15,6 @@
       |  電話番号:
       =@spot.tel
 
-  .col-4
     = link_to  "編集する", edit_spot_path,class:"btn btn-primary"
     
     =form_with(model: FolderSpotRelationship, remote: true) do |f|
@@ -23,3 +22,10 @@
       /TODO
       =hidden_field_tag :spot_id,@spot.id
       = f.submit "実装中：追加する" ,class:"btn"
+
+  .col.s12.m8
+    h5
+      | このスポットを保存しているフォルダ
+    - @spot.saved_relationships.each do |saved_relationship|
+      =render saved_relationship.folder
+
