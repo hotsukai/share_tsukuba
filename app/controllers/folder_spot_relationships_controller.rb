@@ -5,7 +5,8 @@ class FolderSpotRelationshipsController < ApplicationController
   # before_action :correct_user
 
   def create
-    FolderSpotRelationship.create(folder_id: params[:folder_id], spot_id: params[:spot_id])
+    FolderSpotRelationship.create(folder_id: params[:folder_id],
+       spot_id: params[:spot_id], comment: params[:folder_spot_relationship][:comment])
     respond_to do |format|
       format.html { redirect_to Spot.find_by[:spot_id] }
       format.js
