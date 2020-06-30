@@ -1,17 +1,6 @@
 - provide(:title,@folder.name)
-.card
-  .card-content
-    span.card-title
-      = @folder.name
-    p
-      =@folder.user.name
-    p
-      =@folder.description
-    -if current_user==@folder.user
-      .card-action
-        = link_to  "編集する", edit_folder_path,class:"waves-effect waves-light btn"
-        = link_to  "削除する", @folder,method: :delete ,data:{confirm: "フォルダを削除しますか。この操作は元に戻せません"},class:"waves-effect waves-light btn right"
-
+.col.s12.m6
+  =render @folder ,folder:@folder
 h5  このフォルダのスポット
 - @folder.hold_relationships.each do |hold_relationship|
   .col.s6.m4
