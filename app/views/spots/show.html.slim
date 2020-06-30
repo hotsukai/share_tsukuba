@@ -6,7 +6,8 @@ h4 スポット詳細
 .col.s12.m8
   h5
     | このスポットを保存しているフォルダ
-  - @spot.saved_relationships.each do |saved_relationship|
-    =render saved_relationship.folder ,{comment: saved_relationship.comment}
+  div id="folders"
+    - @spot.saved_relationships.each do |saved_relationship|
+      =render saved_relationship.folder ,{comment: saved_relationship.comment}
 
 

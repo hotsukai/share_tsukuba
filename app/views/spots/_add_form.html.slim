@@ -1,0 +1,6 @@
+div id="add-form-#{folder.id}"
+  - if folder.spots.include?(spot)
+    =render "spots/delete",{folder: folder,spot:spot}
+
+  - else
+    =render "spots/add",{folder: folder,spot:spot}

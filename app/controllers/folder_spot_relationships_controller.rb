@@ -5,8 +5,8 @@ class FolderSpotRelationshipsController < ApplicationController
   # before_action :correct_user
 
   def create
-    FolderSpotRelationship.create(folder_id: params[:folder_id],
-       spot_id: params[:spot_id], comment: params[:folder_spot_relationship][:comment])
+    @relationship = FolderSpotRelationship.create(folder_id: params[:folder_id],
+                                                  spot_id: params[:spot_id], comment: params[:folder_spot_relationship][:comment])
     respond_to do |format|
       format.html { redirect_to Spot.find_by[:spot_id] }
       format.js
@@ -15,6 +15,9 @@ end
 
   def destroy
     @relationship = FolderSpotRelationship.find_by(folder_id: params[:folder_id], spot_id: params[:spot_id])
+    @folder = @relationship.folder
+    @spot = @relationship.spot
+
     @relationship.destroy
     respond_to do |format|
       format.html { redirect_to Folder.find_by[:fodler_id] }
