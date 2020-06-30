@@ -2,4 +2,4 @@
   div.card-content
     =link_to user.name ,user_path(user.id)
     - if current_user != user
-      =link_to "削除",user,method: :delete,data:{confirm:"削除しますか？"}
+      =link_to "削除",user,method: :delete,data:{confirm:"削除しますか？"},class:"red darken-1 btn"

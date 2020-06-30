@@ -1,24 +1,24 @@
 .card id="folder-#{folder.id}" class=""
-  =link_to "#{folder.name}",folder,class:"card-title"
   .card-content
-    a [href="https://twitter.com/share?url=#{folder_url}&hashtags=シェアつくば,つくば&text=シェアつくばで#{folder.name}をチェック！" 
-    class="twitter-share-button"  rel="nofollow" target="_blank"]
+    =link_to "#{folder.name}",folder,class:"card-title"
+
+    a [
+      href="https://twitter.com/share?url=#{folder_url}&hashtags=シェアつくば,つくば&text=シェアつくばで#{folder.name}をチェック！" 
+    class="twitter-share-button"  rel="nofollow" target="_blank"
+    ]
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     p.mini.right-align
       | Creater : 
       =folder.user.name
       br
-        | ID : 
-        =folder.id
-    - if defined?(comment)
-      p 
-        |コメント : 
-        br
-        =comment
+      | ID : 
+      =folder.id
+    p
+      =folder.description
         
 
-
-    -if current_user==folder.user && !defined?(not_editable)
-      .card-action
-        = link_to  "編集する", edit_folder_path(folder.id),class:"waves-effect waves-light btn"
-        = link_to  "削除する", folder,method: :delete ,data:{confirm: "フォルダを削除しますか。この操作は元に戻せません"},class:"waves-effect waves-light btn"
+    - if defined?(from_folder)
+      -if current_user==folder.user 
+        .card-action
+          = link_to  "編集する", edit_folder_path(folder.id),class:"waves-effect waves-light btn"
+          = link_to  "削除する", folder,method: :delete ,data:{confirm: "フォルダを削除しますか。この操作は元に戻せません"},class:"waves-effect waves-light btn"

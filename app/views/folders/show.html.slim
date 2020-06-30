@@ -1,25 +1,10 @@
 - provide(:title,@folder.name)
-.col.s12.m6
-  =render @folder ,folder:@folder
-h5  このフォルダのスポット
-- @folder.hold_relationships.each do |hold_relationship|
-  .col.s6.m4
-    .card  
-      .card-content 
-        span.card-title 
-          =hold_relationship.spot.name
-        p 
-          =hold_relationship.spot.zip
-        p 
-          =hold_relationship.spot.address 
-        p 
-          =hold_relationship.spot.tel
-      -if current_user==@folder.user
-        =form_with(model:FolderSpotRelationship.find_by(spot_id: hold_relationship.spot.id,folder_id:@folder.id),html:{method: :delete} ,remote: true) do |f|
-          =hidden_field_tag :folder_id,@folder.id
-          =hidden_field_tag :spot_id,hold_relationship.spot.id
+h4 フォルダ詳細
+.col.s12
+  =render @folder ,{folder:@folder,from_folder:true}
 
-          = f.submit "フォルダから削除" ,class:"btn"
-      
-
-
+.col.s12
+  h5  このフォルダのスポット
+  - @folder.hold_relationships.each do |hold_relationship|
+    .col.s6.m4
+      =render hold_relationship.spot ,{spot:hold_relationship.spot,folder:@folder,form_folder:true}
