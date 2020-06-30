@@ -1,7 +1,16 @@
 .card  
   .card-content     
+
+
     =link_to "#{spot.name}",spot,class:"card-title"
     = image_tag spot.display_image  if spot.image.attached?
+
+    - if defined?(comment) && !comment.blank?
+      p 
+        | このスポットについてのコメント : 
+        = comment
+
+
     p 
       |  郵便番号:
       =spot.zip
