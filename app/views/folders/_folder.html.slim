@@ -1,21 +1,28 @@
 .card id="folder-#{folder.id}" class=""
   .card-content
     =link_to "#{folder.name}",folder,class:"card-title"
+    - if defined?(comment) && !comment.blank?
+      p 
+        | このスポットについてのコメント : 
+        = comment
+
 
     a [
       href="https://twitter.com/share?url=#{folder_url(folder)}&hashtags=シェアつくば,つくば&text=シェアつくばで#{folder.name}をチェック！" 
     class="twitter-share-button"  rel="nofollow" target="_blank"
     ]
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
     p.mini.right-align
       | Creater : 
       =folder.user.name
       br
       | ID : 
       =folder.id
+      
     p
       =folder.description
-        
+
 
     - if defined?(from_folder)
       -if current_user==folder.user 

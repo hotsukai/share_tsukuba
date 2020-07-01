@@ -1,7 +1,16 @@
 .card  
   .card-content     
+
+
     =link_to "#{spot.name}",spot,class:"card-title"
     = image_tag spot.display_image  if spot.image.attached?
+
+    - if defined?(comment) && !comment.blank?
+      p 
+        | このスポットについてのコメント : 
+        = comment
+
+
     p 
       |  郵便番号:
       =spot.zip
@@ -35,7 +44,7 @@
     - if defined?(from_folder)
       - if current_user==folder.user
         =form_with(model:FolderSpotRelationship.find_by(spot_id: spot.id,folder_id:folder.id),html:{method: :delete} ,remote: true) do |f|
-          =hidden_field_tag :folder_id,folder.id
-          =hidden_field_tag :spot_id,spot.id
+          =hidden_field :folder_id,folder.id
+          =hidden_field :spot_id,spot.id
           = f.submit "フォルダから削除" ,class:"btn"
       / フォルダから呼び出されたとき↑

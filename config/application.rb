@@ -19,7 +19,7 @@ module MyPracticeApp
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    # 認証トークンをremoteフォームに埋め込む(ブラウザでJS無向でも動くようにする)
+    # 認証トークンをremoteフォームに埋め込む(ブラウザでJS無効でも動くようにする)
     config.action_view.embed_authenticity_token_in_remote_forms = true
   end
 end
