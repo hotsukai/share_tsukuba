@@ -20,7 +20,7 @@
       br
       |  電話番号:
       =spot.tel
-    = link_to  "編集する", edit_spot_path(spot.id),class:"btn red darken-1"  if current_user.admin?
+    = link_to  "編集する", edit_spot_path(spot.id),class:"btn red darken-1"  if logged_in? && current_user.admin?
     button data-target="modal1" class="btn btn-primary modal-trigger"
       | フォルダに追加する
 
