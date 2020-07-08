@@ -15,10 +15,13 @@
 
     p.mini.right-align
       | Creater : 
-      =folder.user.name
+      =link_to folder.user.name ,folder.user
       br
       | ID : 
       =folder.id
+      br
+      | 作成日 : 
+      =folder.created_at.to_s(:datetime_jp)
       
     p
       =folder.description

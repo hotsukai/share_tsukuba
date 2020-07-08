@@ -17,10 +17,8 @@
 .col.s12.m8
   h4
     | 新着フォルダ
-  p 
-    i class="material-icons" 
-      | new_releases
-    | 未実装
+  -if @new_feed_items.any?
+    =render "shared/feed",{feed_items:@new_feed_items}
   .divider
 
 -if logged_in?

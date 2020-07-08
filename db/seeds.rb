@@ -24,12 +24,6 @@ Spot.create(name: 'ガーリーショット', zip: 'hoge', address: 'hogehoge', 
                password_confirmation: password)
 end
 
-User.create!(name: '管理者 ほつみちゃんねる',
-             email: 'admin@admin.admin',
-             password: 'foobar',
-             password_confirmation: 'foobar',
-             admin: true)
-
 users = User.order(:created_at).take(6)
 50.times do
   content = 'folder title sample'
