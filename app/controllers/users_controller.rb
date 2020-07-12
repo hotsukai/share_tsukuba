@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @feed_items = @user.feed.page(params[:page])
+    @feed_items = @user.folders.page(params[:page])
   end
 
   def create
