@@ -18,7 +18,9 @@ module MyPracticeApp
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-
+    
+    #日本時間
+config.time_zone = 'Tokyo'
     # 認証トークンをremoteフォームに埋め込む(ブラウザでJS無効でも動くようにする)
     config.action_view.embed_authenticity_token_in_remote_forms = true
   end

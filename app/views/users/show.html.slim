@@ -16,6 +16,6 @@
   h3 このユーザーが作成したフォルダ
 
   -if @feed_items.any?
-    =render "shared/feed"
+    =render "shared/feed",{feed_items:@feed_items}
   -else 
     p まだフォルダがありません

@@ -11,14 +11,16 @@
       href="https://twitter.com/share?url=#{folder_url(folder)}&hashtags=シェアつくば,つくば&text=シェアつくばで#{folder.name}をチェック！" 
     class="twitter-share-button"  rel="nofollow" target="_blank"
     ]
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
     p.mini.right-align
       | Creater : 
-      =folder.user.name
+      =link_to folder.user.name ,folder.user
       br
       | ID : 
       =folder.id
+      br
+      | 作成日 : 
+      =folder.created_at.to_s(:datetime_jp)
       
     p
       =folder.description
