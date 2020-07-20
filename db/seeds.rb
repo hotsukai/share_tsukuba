@@ -47,7 +47,8 @@ end
 users = User.order(:created_at).take(6)
 3.times do |n|
   content = "sample folder #{n}"
-  users.each { |user| user.folders.create!(name: content) }
+  description = "sample text #{n}"
+  users.each { |user| user.folders.create!(name: content, description: description) }
 end
 
 users = User.all
@@ -58,6 +59,7 @@ following.each { |followed| user.follow(followed) }
 followers.each { |follower| follower.follow(user) }
 
 folders = Folder.order(:created_at).take(6)
-Spot.all.each do |spot|
+spots = Spot.all
+spots.sample(5).each do |spot|
   folders.each { |folder| folder.spots << spot }
 end
