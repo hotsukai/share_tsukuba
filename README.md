@@ -1,24 +1,16 @@
-# README
+# シェアつくば
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## このアプリについて
 
-Things you may want to cover:
+- rails の練習のために制作。
+- おすすめスポットをまとめたフォルダ単位で共有することができる。
+- アプリ内でユーザーをフォローすることでフォロー中のユーザーのフォルダがタイムラインに流れてくる。
 
-* Ruby version
+## 動作方法
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+docker-compose build
+docker-compose run web yarn install
+docker-compose run rails db:migrate:reset
+docker-compose up
+```
