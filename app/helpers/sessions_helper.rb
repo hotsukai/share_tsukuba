@@ -32,7 +32,7 @@ module SessionsHelper
     user.forget
     cookies.delete(:user_id)
     cookies.delete(:remember_token)
-end
+  end
 
   def log_out
     forget(current_user) # current_userっていうrailsのヘルパーメゾット？？
@@ -43,7 +43,7 @@ end
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)
     session.delete(:forwarding_url)
-end
+  end
 
   # アクセスしようとしたURLを覚えておく
   def store_location
