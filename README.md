@@ -11,6 +11,6 @@
 ```
 docker-compose build
 docker-compose run web yarn install
-docker-compose run rails db:migrate:reset
+docker-compose run web rails db:migrate:reset
 docker-compose up
 ```
